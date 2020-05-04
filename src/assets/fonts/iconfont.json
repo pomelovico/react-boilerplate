@@ -1,0 +1,30 @@
+{
+  "id": "1556612",
+  "name": "me",
+  "font_family": "iconfont",
+  "css_prefix_text": "w-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2284804",
+      "name": "warehouse_icon",
+      "font_class": "warehouse_icon",
+      "unicode": "e6cc",
+      "unicode_decimal": 59084
+    },
+    {
+      "icon_id": "9358747",
+      "name": "records",
+      "font_class": "records",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11488164",
+      "name": "warehouse",
+      "font_class": "warehouse",
+      "unicode": "e76d",
+      "unicode_decimal": 59245
+    }
+  ]
+}
