@@ -1,36 +1,33 @@
-import { getAgents } from '@/service/dashboard';
+import { getAgentsService } from '@/service/dashboard';
 import React, { useEffect } from 'react';
 import styles from './Home.less';
 
 import Logo from '@/assets/logo/logo.svg';
+import { useAgentsStore } from '@/store/agents';
 
 export interface HomeProps {
   foo?: string;
 }
 
 const Home: React.FC<HomeProps> = () => {
-  useEffect(() => {
-    (async () => {
-      const res = await getAgents();
+  const loadAgents = useAgentsStore((store) => store.loadAgents);
+  const list = useAgentsStore((store) => store.list);
 
-      console.log('=====> getAgents', res.data);
-    })();
+  useEffect(() => {
+    loadAgents();
   }, []);
+
   return (
     <div className={styles.container}>
-      <h1>React Boilerplate</h1>
-      <h2>React + Rematch + React-Router + TypeScript</h2>
       <Logo />
       <div>
-        <p>
-          <code>yarn & yarn install</code>
-        </p>
-        <p>
-          <code>yarn dev</code>
-        </p>
-        <p>
-          <code>yarn build</code>
-        </p>
+        {list.map((item) => {
+          return (
+            <div>
+              {item.name} = {item.location}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
