@@ -1,9 +1,9 @@
-const webpack = require("webpack");
-const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
-const WebpackBar = require("webpackbar");
+const webpack = require('webpack');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
-const paths = require("./paths");
-const { createCSSLoader, createLessLoader } = require("./helpers");
+const paths = require('./paths');
+const { createCSSLoader, createLessLoader } = require('./helpers');
 
 const mode = process.env.NODE_ENV;
 
@@ -14,13 +14,13 @@ module.exports = {
   output: {
     path: paths.dist,
     publicPath: paths.publicPath,
-    filename: "assets/js/[name].[hash:6].js",
-    chunkFilename: "assets/js/[name].[chunkhash:6].js",
+    filename: 'assets/js/[name].[hash:6].js',
+    chunkFilename: 'assets/js/[name].[chunkhash:6].js',
   },
   resolve: {
-    extensions: [".js", ".json", ".jsx", ".ts", ".tsx"],
+    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx'],
     alias: {
-      "@": paths.src,
+      '@': paths.src,
     },
   },
 
@@ -29,7 +29,7 @@ module.exports = {
       {
         test: /\.(js|jsx|ts|tsx)$/,
         include: [paths.src],
-        loader: "babel-loader",
+        loader: 'babel-loader',
         options: {
           cacheDirectory: true,
         },
@@ -64,9 +64,43 @@ module.exports = {
         test: /fonts\/.*\.(ttf|eot|woff|svg|woff2)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "assets/fonts/[name].[ext]",
+              name: 'assets/fonts/[name].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /fonts\/.*\.(ttf|eot|woff|svg|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/fonts/[name].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'assets/images/[name].[hash:8].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              replaceAttrValues: { old: 'new' },
             },
           },
         ],
@@ -77,8 +111,8 @@ module.exports = {
   // 插件
   plugins: [
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || ""),
-      "process.env.API_ENV": JSON.stringify(process.env.API_ENV || ""),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || ''),
+      'process.env.API_ENV': JSON.stringify(process.env.API_ENV || ''),
     }),
     new FriendlyErrorsWebpackPlugin(),
     new WebpackBar(),
