@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.less';
-import './assets/font-icons/fonts.css';
+import './assets/font-icons/fonts.less';
 
 async function bootApp() {
   const TT = await import('@/router/router');

@@ -1,0 +1,61 @@
+@import '~@/styles/var.less';
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 240px;
+  background-color: @gray;
+  color: @N0;
+  margin-right: 24px;
+}
+
+.nav {
+  margin-top: 16px;
+  .nav-item {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    overflow: hidden;
+    padding: 0 16px;
+    &:hover,
+    &.nav-item_active {
+      color: @cyan;
+    }
+    &:hover {
+      background-color: fade(#fff, 30%);
+      cursor: pointer;
+    }
+    .icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+.history {
+  padding: 12px;
+  overflow: hidden;
+  .history-title {
+    font-size: 24px;
+    color: #ccc;
+  }
+  ul {
+    margin-left: 16px;
+  }
+  ul,
+  li,
+  .history-item {
+    color: #999;
+    font-size: 12px;
+  }
+  .history-item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 8px 0;
+    &:hover {
+      color: @cyan;
+      cursor: pointer;
+    }
+  }
+}

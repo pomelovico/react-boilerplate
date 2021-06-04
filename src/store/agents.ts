@@ -4,10 +4,12 @@ import create, { SetState } from 'zustand';
 
 interface AgentsState {
   list: Agent[];
+  category: any;
 }
 
 const getDefaultState = (): AgentsState => ({
   list: [],
+  category: 0,
 });
 
 const getActions = <T extends AgentsState>(set: SetState<T>) => {

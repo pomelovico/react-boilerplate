@@ -1,0 +1,24 @@
+@import '~@/styles/var.less';
+
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  background-color: #fff;
+}
+.header {
+  position: relative;
+  display: flex;
+  width: @max-container-width;
+  justify-content: center;
+  align-items: center;
+  .logo {
+    height: 40px;
+  }
+  .profile {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

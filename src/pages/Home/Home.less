@@ -1,11 +1,32 @@
-.container{
-  margin-top: 240px;
+@import '~@/styles/var.less';
+
+.container {
+  position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+.header {
+  flex-shrink: 0;
+  box-shadow: 0 1px 5px fade(#777, 30%);
+}
+.body {
+  position: relative;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  code{
-    color: #666;
-    font-family:monospace, consolas;
+  flex: 1;
+  overflow: auto;
+  .body-inner {
+    width: @max-container-width;
+    display: flex;
   }
+}
+
+.footer {
+  flex-shrink: 0;
+  background-color: #fff;
+  padding: 8px;
+  font-size: 12px;
+  text-align: center;
+  box-shadow: 0 -1px 5px fade(#777, 30%);
 }
