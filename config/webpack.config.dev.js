@@ -16,7 +16,7 @@ const devConfig = {
   devServer: {
     hot: true,
     contentBase: paths.dist,
-    port: 3001,
+    port: 9000,
     publicPath: "/",
     historyApiFallback: true,
     disableHostCheck: true,

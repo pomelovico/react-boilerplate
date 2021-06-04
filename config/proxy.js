@@ -1,26 +1,10 @@
-const apiEnv = process.env.API_ENV;
-const isMockOn = apiEnv === "mock";
-const PREFIX = "survey";
+const PREFIX = "agents";
 
 let proxy = {
   [`/${PREFIX}`]: {
-    target: "http://your.api", // dev时
+    target: "http://localhost:9001",
     changeOrigin: true,
   },
 };
-
-const MOCK_HOST = "https://mock.net/";
-
-if (isMockOn) {
-  proxy = {
-    [`/${PREFIX}`]: {
-      target: MOCK_HOST,
-      changeOrigin: true,
-      pathRewrite: {
-        [`^/${PREFIX}`]: `/mock/1111/${PREFIX}`,
-      },
-    },
-  };
-}
 
 module.exports = proxy;

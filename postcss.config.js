@@ -1,4 +1,4 @@
-module.exports = ({ file, env }) => ({
+module.exports = () => ({
   ident: "postcss",
   plugins: {
     autoprefixer: {},
